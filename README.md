@@ -5,26 +5,26 @@ Delivery Portfolio Vite App is a front-end dashboard made for a portfolio showin
 - docker
 
 ## FRs (functional requirements)
-  [ ] 
-  [ ] 
-  [ ] 
-  [ ] 
-  [ ] 
-  [ ] 
-  [ ] 
-  [ ] 
-  [ ] 
-  [ ] 
+ - [ ] er
+ - [ ] df
+ - [ ] df
+ - [ ] df
+ - [ ] df
+ - [ ] df
+ - [ ] df
+ - [ ] df
+ - [ ] df
+ - [ ] df
 
 ## BRs (business requirements)
-  [ ] 
-  [ ] 
-  [ ] 
-  [ ] 
-  [ ] 
-  [ ] 
+- [ ] df
+- [ ] df
+- [ ] df
+- [ ] df
+- [ ] df
+- [ ] df
  
  ## NFRs (non-functional requirements)
-  [ ] 
-  [ ] 
-  [ ] 
+ - [ ] df
+ - [ ] df
+-  [ ] df

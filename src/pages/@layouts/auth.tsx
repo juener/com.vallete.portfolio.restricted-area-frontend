@@ -1,20 +1,27 @@
-import { Mouse } from 'lucide-react'
+import { Earth } from 'lucide-react'
 import { Outlet } from 'react-router-dom'
-
-import { Button } from '@/components/ui/button'
 
 export function AuthLayout() {
   return (
-    <div className="grid-2-cols grid min-h-screen">
-      <div className="flex h-full flex-col justify-between border-r border-foreground/5 bg-muted p-10 text-muted-foreground">
-        <div className="flex items-center gap-3 text-lg text-foreground">
-          <Mouse />
-          <Button>Test</Button>
+    <div className="flex min-h-screen w-screen flex-row">
+      <section className="hidden h-screen w-7/12 flex-col rounded-lg border-r border-foreground/5 bg-primary px-6 py-10 text-muted-foreground lg:flex">
+        <div className="flex flex-1 items-center justify-center">
+          <h2 className="text-5xl text-secondary">Howdy!</h2>
         </div>
-        Header
+        <footer className="flex h-1 flex-row">
+          <Earth className="mr-2" />
+          <span>Go to the website.</span>
+        </footer>
+      </section>
+
+      <section className="flex w-full flex-col items-center justify-center gap-4 bg-primary-foreground text-center lg:w-5/12">
+        <img src="/images/logo.png" alt="Delivery Logo" className="w-4/12" />
+        <span className="w-9/12 font-bold">Restricted Area</span>
         <Outlet />
-        <footer className="text-sm">Copyright</footer>
-      </div>
+        <span className="w-11/12 text-xs italic">
+          Whenever you log in, you are accepting our terms and conditions.
+        </span>
+      </section>
     </div>
   )
 }
