@@ -11,7 +11,7 @@ import { Sheet } from './sheet'
 
 export function Aside() {
   return (
-    <aside className="h-screen">
+    <aside>
       <div className="mx-1 flex flex-col rounded-lg bg-gradient-to-bl from-primary/15 via-background to-background">
         <NavLink to="/">
           <Home /> Dashboard
