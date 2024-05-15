@@ -3,6 +3,7 @@ import {
   Fingerprint,
   Home,
   LineChart,
+  ListOrdered,
   SlidersHorizontal,
 } from 'lucide-react'
 
@@ -22,8 +23,11 @@ export function Aside() {
         <NavLink to="/">
           <LineChart /> Statistics
         </NavLink>
-        <NavLink to="/">
+        <NavLink to="/authentication/complete-register">
           <Fingerprint /> Data
+        </NavLink>
+        <NavLink to="/orders">
+          <ListOrdered /> Orders
         </NavLink>
         <NavLink to="/">
           <SlidersHorizontal /> Settings
