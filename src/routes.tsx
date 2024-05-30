@@ -6,11 +6,13 @@ import { Dashboard } from './pages/app/dashboard/dashboard'
 import { Orders } from './pages/app/orders'
 import { Authentication } from './pages/auth/authentication'
 import { CompleteRegister } from './pages/auth/complete-register'
+import { NotFound } from './pages/errors/404'
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <AppLayout />,
+    errorElement: <NotFound />,
     children: [
       { path: '/', element: <Dashboard /> },
       { path: '/orders', element: <Orders /> },
