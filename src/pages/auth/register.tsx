@@ -41,10 +41,10 @@ export function Register() {
         password: data.password,
       })
 
-      navigate('/auth/basic-authentication')
+      navigate(`/auth/basic-authentication?email=${data.email}`)
     } catch (err) {
       toast({
-        title: 'Error!',
+        title: 'Error',
         description: `${err?.message}`,
         variant: 'destructive',
       })

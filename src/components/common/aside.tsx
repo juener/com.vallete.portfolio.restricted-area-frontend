@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query'
 import {
   FilePlus,
   Fingerprint,
@@ -7,10 +8,18 @@ import {
   SlidersHorizontal,
 } from 'lucide-react'
 
+import { getProfile } from '@/api/get-profile'
+
+import { Skeleton } from '../ui/skeleton'
 import { NavLink } from './nav-link'
 import { Sheet } from './sheet'
 
 export function Aside() {
+  const { data: profile, isLoading: isLoadingGetProfile } = useQuery({
+    queryKey: ['get-profile'],
+    queryFn: getProfile,
+  })
+
   return (
     <aside>
       <div className="mx-1 flex flex-col rounded-lg bg-gradient-to-bl from-primary/15 via-background to-background">
@@ -34,6 +43,14 @@ export function Aside() {
         </NavLink>
         {/* <Outlet /> */}
         <Sheet />
+        <NavLink to="/">
+          <SlidersHorizontal />
+          {isLoadingGetProfile ? (
+            <Skeleton className="h-4 w-full" />
+          ) : (
+            profile?.user.name
+          )}
+        </NavLink>
       </div>
     </aside>
   )

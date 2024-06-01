@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { z } from 'zod'
 
 import { signIn } from '@/api/sign-in'
@@ -19,11 +19,17 @@ const basicAuthenticationForm = z.object({
 type BasicAuthenticationForm = z.infer<typeof basicAuthenticationForm>
 
 export function BasicAuthentication() {
+  const [searchParams] = useSearchParams()
+
   const {
     register,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<BasicAuthenticationForm>()
+  } = useForm<BasicAuthenticationForm>({
+    defaultValues: {
+      email: searchParams.get('email') ?? '',
+    },
+  })
 
   const navigate = useNavigate()
   const { toast } = useToast()
@@ -42,7 +48,7 @@ export function BasicAuthentication() {
       navigate('/')
     } catch (err) {
       toast({
-        title: 'Error!',
+        title: 'Error',
         description: `${err?.message}`,
         variant: 'destructive',
         action: <ToastAction altText="Try again">Try again</ToastAction>,
