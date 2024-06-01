@@ -7,22 +7,24 @@ import { Input } from '@/components/ui/input'
 import { Toaster } from '@/components/ui/toaster'
 import { useToast } from '@/components/ui/use-toast'
 
-const authenticationForm = z.object({
+const passwordAuthenticationForm = z.object({
   email: z.string().email(),
 })
 
-type AuthenticationForm = z.infer<typeof authenticationForm>
+type PasswordAuthenticationForm = z.infer<typeof passwordAuthenticationForm>
 
-export function Authentication() {
+export function PasswordlessAuthentication() {
   const {
     register,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<AuthenticationForm>()
+  } = useForm<PasswordAuthenticationForm>()
 
   const { toast } = useToast()
 
-  async function handleAuthentication(data: AuthenticationForm) {
+  async function handlePasswordlessAuthentication(
+    data: PasswordAuthenticationForm,
+  ) {
     console.log(data)
     await new Promise((resolve) => setTimeout(resolve, 2000))
 
@@ -39,7 +41,7 @@ export function Authentication() {
       <Helmet title="Sign-In" />
 
       <form
-        onSubmit={handleSubmit(handleAuthentication)}
+        onSubmit={handleSubmit(handlePasswordlessAuthentication)}
         className="flex w-9/12 flex-col gap-4"
       >
         <Input
